@@ -24,7 +24,7 @@ person.marcher();
 
 console.log(person.prenom);
 
-const etudiant = person.marcher; // attention je ne mets de ()
+const etudiant = person.marcher.bind(person); // attention je ne mets de ()
 // passage par référence
 // etudiant va contenir les instructions contenues dans la méthode marcher
 console.log("etudiant", etudiant);
@@ -39,3 +39,7 @@ etudiant();
 // this renvoie le contexte d'exécution
 // person.marcher(); this = person{} dinc this.nom = "Alain"
 // etudiant(); this => window donc this.nom = undefined
+
+// pour éviter d'avoir this devienne window => this.nom == window.nom == undefined
+// les fonctions (qui sont des objets) dispose d'une méthode .bind(person)
+// cette méthode de fonction permet de garantir que this == person quelquesoit le contexte d'exécution
