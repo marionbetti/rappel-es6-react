@@ -9,17 +9,33 @@
 // contenir des fonctions
 
 const person = {
-  nom: "Moi", // attribut d'objet ou propriété d'objet
+  nom: "Alain", // attribut d'objet ou propriété d'objet
   parler: function() {
     console.log("parler");
   }, // méthode d'objet = fonction dans l'objet manière classique d'écrire
   marcher() {
-    console.log("Marcher");
+    console.log(this.nom + " est en train de Marcher");
+    console.log(this);
   } // nouvelle manière d'écrire une méthode de d'objet
 };
 
 // deux manières d'utiliser de méthode
 person.marcher();
 
-const action = "parler";
-person[action](); //autre manière d'exécuter les instructions de person.marcher
+console.log(person.prenom);
+
+const etudiant = person.marcher; // attention je ne mets de ()
+// passage par référence
+// etudiant va contenir les instructions contenues dans la méthode marcher
+console.log("etudiant", etudiant);
+
+etudiant();
+
+// this mot clé du langage javascript
+// il ne fonctionne de la même manière que this lorsque l'on travaille en Java ou PHP
+
+// en fonction de comment vous allez l'exécuter renvoyé une référence à un objet
+// renvoyer windows
+// this renvoie le contexte d'exécution
+// person.marcher(); this = person{} dinc this.nom = "Alain"
+// etudiant(); this => window donc this.nom = undefined
