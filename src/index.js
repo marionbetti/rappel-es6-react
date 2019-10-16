@@ -104,11 +104,11 @@ const articles = [
 
 // manière 1
 let result = articles.filter(function(a) {
-  return a.isActif;
+  return a.titre == "titre1" || a.id == 2;
 });
 console.log(result);
 
 // manière
-result = articles.filter(a => a.isActif);
+result = articles.filter(a => a.titre == "titre1" || a.id == 2);
 
 console.log(result);
