@@ -16,6 +16,26 @@ class Person {
   }
 }
 
-const Alain = new Person("Alain");
+// héritage
+class Teacher extends Person {
+  constructor(nom, diplome) {
+    super(nom);
+    this.diplome = diplome;
+  }
+  former() {
+    console.log("Former en React");
+  }
+  apprendre() {
+    console.log(
+      "il n'a pas besoin d'apprendre car il a un diplome de l'" + this.diplome
+    );
+  }
+}
 
-Alain.apprendre();
+const alain = new Person("Alain");
+
+alain.apprendre();
+
+const prof = new Teacher("Moi", "Ifocop");
+prof.apprendre();
+prof.former();
