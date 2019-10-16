@@ -1,12 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// dans le dossier react => create-react-app jour1-react-es6 (télécharger react)
+// cd jour1-react-es6 
+// code . => ouvrir visual studio
+// src/index.js => coller tout le texte que l'on avait mis dans jour1-es6/01-objet.js qui remplace tout le texte
+// yarn start
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// objet littéral
+// variable complexe : contient plusieurs valeurs
+// contenir des fonctions
+
+const person = {
+  nom: "Moi", // attribut d'objet ou propriété d'objet
+  parler: function() {}, // méthode d'objet = fonction dans l'objet manière classique d'écrire
+  marcher() {
+    console.log("Marcher");
+  } // nouvelle manière d'écrire une méthode de d'objet
+};
+
+person.marcher();
