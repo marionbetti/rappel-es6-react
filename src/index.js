@@ -8,6 +8,8 @@ class Person {
     // dispose d'une fonction constructor exécutée lorsque l'on fait un new
     // instancier les variables de class
     this.name = nom;
+    console.log("ici");
+    console.log("la");
     //this.apprendre = this.apprendre.bind(this);
   }
 
@@ -39,3 +41,12 @@ alain.apprendre();
 const prof = new Teacher("Moi", "Ifocop");
 prof.apprendre();
 prof.former();
+
+// spread
+const arr = [1, 2, 3];
+const arr2 = [...arr]; // copie de l'adresse mémoire de arr
+// si modification de arr2 => modifie arr
+arr2.push(4);
+
+console.log("arr", arr);
+console.log("arr2", arr2); // [1, 2, 3, 4]
