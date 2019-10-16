@@ -1,92 +1,26 @@
-// combo arrow function, this et objet littéral
+const a = [1, 2, 3];
+const b = [4, 5, 6];
 
-const formation = {
-  nom: "Developpeur Web & Mobile",
-  apprendre() {
-    console.log(this.nom);
-  },
-  apprendreVite() {
-    setTimeout(function() {
-      console.log(this.nom); // attention au contexte
-      console.log(this);
-    }, 1000);
-  },
-  apprendreViteSelf() {
-    // méthode super classique
-    const self = this; // créer une variable qui va contenir la valeur de this (formation)
+// concaténer des tableaux : sommer le contenu de deux tableaux
+// méthode old school
+const c = a.concat(b);
 
-    setTimeout(function() {
-      console.log(self.nom); // puis l'utiliser dans la fonction
-      console.log(self);
-    }, 2000);
-  },
-  apprendreViteArrow() {
-    setTimeout(() => {
-      // Arrows functions ne créent pas de nouveau contexte
-      console.log(this.nom);
-    }, 3000);
-  }
-};
+console.log(c);
 
-formation.apprendre();
-formation.apprendreVite();
-formation.apprendreViteSelf();
-formation.apprendreViteArrow();
+// méthode new school
+const d = [...a, ...b]; // spread opérator
+console.log(d);
 
-// dans React il n'existe pas de directive de type *ngFor
-// il faut utiliser une méthode native des tableaux en javascript
-// .map()
+const e = [...a, "du texte", ...b];
 
-const jours = ["Lundi", "Mardi"];
+console.log(e);
 
-// je veux générer depuis ce tableau une liste [<li>"Lundi"</li>, <li>"Mardi"</li>]
+let test = [3];
 
-// rappel de la syntaxe Angular
-//<li *ngFor="let j of jours">{{j}}</li>
+let test2 = test;
+let test3 = [...test];
 
-const htmlJour = jours.map(function(j) {
-  return `<li>${j}</li>`;
-});
-console.log(htmlJour);
+test = [20, 22];
 
-const htmlJour2 = jours.map(j => `<li>${j}</li>`);
-console.log(htmlJour2);
-
-// destructuration d'objet
-
-const voiture = {
-  modele: 206,
-  marque: "Peugeot",
-  anneeAchat: 2012,
-  info() {
-    return `${this.marque} ${this.modele}`;
-  }
-};
-
-// méthode classique pour afficher chaque attribut de l'objet
-console.log(voiture.anneeAchat, voiture.marque, voiture.modele);
-
-// nouvelle manière
-// destructuration d'objet
-const { anneeAchat, marque, modele, info } = voiture;
-
-console.log(anneeAchat, marque, modele);
-const i = info.bind(voiture);
-console.log(i());
-
-function generateInfo(objet) {
-  return `<p>${objet.id} - ${objet.titre}</p>`;
-}
-
-const r = generateInfo({ id: 1, titre: "titre" });
-
-console.log(r);
-
-function generateInfo2({ id, titre }) {
-  // la fonction a 1 seul argument
-  return `<p>${id} - ${titre}</p>`;
-}
-
-const r2 = generateInfo2({ id: 2, titre: "titre2" });
-
-console.log(r2);
+console.log("test2", test2);
+console.log("test3", test3);
