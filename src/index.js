@@ -43,3 +43,50 @@ etudiant();
 // pour éviter d'avoir this devienne window => this.nom == window.nom == undefined
 // les fonctions (qui sont des objets) dispose d'une méthode .bind(person)
 // cette méthode de fonction permet de garantir que this == person quelquesoit le contexte d'exécution
+
+//------------
+
+// méthode classique pour déclararer une fonction
+function generateNom() {
+  return "Béatrice";
+}
+
+console.log(generateNom());
+
+// autre manière classique
+const generatePrenom = function() {
+  return "Celine";
+};
+
+console.log(generatePrenom());
+
+// nouvelle manière zero paramètre ()
+const generateNomComplet = () => {
+  return "Victor Hugo";
+};
+
+console.log(generateNomComplet());
+
+// nouvelle manière un paramètre les parenthèses sont facultatives et Prettier va les supprimer
+const html = texte => {
+  return `<h1>${texte}</h1>`;
+};
+
+// nouvelle manière avec au moins 2 arguments à la fonction, les () sont obligatoires
+const menu = (texte1, texte2) => {
+  return `<nav>${texte1}${texte2}</nav>`;
+};
+
+// 1 seule instruction et quelle fait un return
+// enlever les accolades et le return
+const film = name => {
+  return name;
+};
+
+const film2 = name => name;
+
+// équivalent à écrire
+// function film(name){
+//    return name
+//}
+console.log(film("ET"));
